@@ -1,5 +1,7 @@
-import 'package:clean_arch/modules/car/data/repositories/repositories.dart';
 import 'package:flutter_test/flutter_test.dart';
+
+import 'package:clean_arch/modules/car/data/datasources/datasources.dart';
+import 'package:clean_arch/modules/car/data/repositories/repositories.dart';
 
 import 'package:clean_arch/modules/car/domain/entities/entities.dart';
 import 'package:clean_arch/modules/car/domain/repositories/repositories.dart';
@@ -8,8 +10,10 @@ import 'package:clean_arch/modules/car/domain/usecases/usecases.dart';
 void main() {
   late GetCarByColorUsecase getCarByColorUsecase;
   late GetCarByColorRepository getCarByColorRepository;
+  late GetCarByColorDatasource getCarByColorDataSource;
   setUp(() {
-    getCarByColorRepository = GetCarByColorRepositoryImpl();
+    getCarByColorDataSource = GetCarByColorLocalDatasource();
+    getCarByColorRepository = GetCarByColorRepositoryImpl(getCarByColorDataSource);
     getCarByColorUsecase = GetCarByColorUsecaseImpl(getCarByColorRepository);
   });
 

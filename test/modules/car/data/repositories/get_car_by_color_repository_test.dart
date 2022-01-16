@@ -4,12 +4,15 @@ import 'package:clean_arch/modules/car/domain/entities/car_entity.dart';
 import 'package:clean_arch/modules/car/domain/repositories/repositories.dart';
 
 import 'package:clean_arch/modules/car/data/repositories/repositories.dart';
+import 'package:clean_arch/modules/car/data/datasources/datasources.dart';
 
 void main() {
   late GetCarByColorRepository getCarByColorRepository;
+  late GetCarByColorDatasource getCarByColorDataSource;
 
   setUp(() {
-    getCarByColorRepository = GetCarByColorRepositoryImpl();
+    getCarByColorDataSource = GetCarByColorLocalDatasourceImpl();
+    getCarByColorRepository = GetCarByColorRepositoryImpl(getCarByColorDataSource);
   });
 
   test('Should show a CarEntity when GetCarByColorRepository is called', () {
