@@ -9,6 +9,7 @@ class SaveFavoriteCarUsecaseImpl implements SaveFavoriteCarUsecase {
 
   @override
   Future<bool> call(CarEntity carEntity) async {
+    carEntity.taxArringFromValue();
     return await saveFavoriteCarRepository.call(carEntity);
   }
 }

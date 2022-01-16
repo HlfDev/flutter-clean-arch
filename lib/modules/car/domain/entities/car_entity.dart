@@ -2,11 +2,22 @@ class CarEntity {
   String licensePlate;
   int doorNumbers;
   double value;
+
   CarEntity({
     required this.licensePlate,
     required this.doorNumbers,
     required this.value,
   });
+
+  double get totalValue {
+    return value * doorNumbers;
+  }
+
+  taxArringFromValue() {
+    if (totalValue > 40000) {
+      return value * 2;
+    }
+  }
 
   CarEntity copyWith({
     String? licensePlate,
