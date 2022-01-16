@@ -1,15 +1,10 @@
-import 'package:clean_arch/modules/car/domain/entities/car_entity.dart';
 import 'package:flutter_test/flutter_test.dart';
 
+import 'package:clean_arch/modules/car/data/repositories/repositories.dart';
+
+import 'package:clean_arch/modules/car/domain/entities/car_entity.dart';
 import 'package:clean_arch/modules/car/domain/repositories/repositories.dart';
 import 'package:clean_arch/modules/car/domain/usecases/usecases.dart';
-
-class SaveFavoriteCarRepositoryImpl implements SaveFavoriteCarRepository {
-  @override
-  Future<bool> call(CarEntity carEntity) async {
-    return carEntity.value > 0;
-  }
-}
 
 void main() {
   late SaveFavoriteCarUsecase saveFavoriteCarUsecase;
