@@ -1,12 +1,14 @@
 import 'package:clean_arch/modules/car/domain/entities/car_entity.dart';
+import 'package:clean_arch/modules/car/domain/repositories/repositories.dart';
 import 'package:clean_arch/modules/car/domain/usecases/usecases.dart';
 
 class GetCarByColorUsecaseImpl implements GetCarByColorUsecase {
+  final GetCarByColorRepository _getCarByColorRepository;
+
+  GetCarByColorUsecaseImpl(this._getCarByColorRepository);
+
   @override
   CarEntity call(String color) {
-    if (color.toUpperCase() == 'RED') {
-      return CarEntity(licensePlate: 'ABC100', doorNumbers: 4, value: 40000);
-    }
-    return CarEntity(licensePlate: 'ABC200', doorNumbers: 2, value: 20000);
+    return _getCarByColorRepository.call(color);
   }
 }

@@ -3,13 +3,13 @@ import 'package:clean_arch/modules/car/domain/entities/car_entity.dart';
 import 'package:clean_arch/modules/car/domain/usecases/usecases.dart';
 
 class SaveFavoriteCarUsecaseImpl implements SaveFavoriteCarUsecase {
-  final SaveFavoriteCarRepository saveFavoriteCarRepository;
+  final SaveFavoriteCarRepository _saveFavoriteCarRepository;
 
-  SaveFavoriteCarUsecaseImpl(this.saveFavoriteCarRepository);
+  SaveFavoriteCarUsecaseImpl(this._saveFavoriteCarRepository);
 
   @override
   Future<bool> call(CarEntity carEntity) async {
     carEntity.taxArringFromValue();
-    return await saveFavoriteCarRepository.call(carEntity);
+    return await _saveFavoriteCarRepository.call(carEntity);
   }
 }
