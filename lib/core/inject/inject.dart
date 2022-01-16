@@ -13,22 +13,38 @@ class Inject {
     GetIt getIt = GetIt.instance;
 
     // Datasources
-    getIt.registerLazySingleton<GetCarByColorDatasource>(() => GetCarByColorLocalDatasourceImpl());
+    getIt.registerLazySingleton<GetCarByColorDatasource>(
+      () => GetCarByColorLocalDatasourceImpl(),
+    );
 
     // Repositories
-    getIt.registerLazySingleton<SaveFavoriteCarRepository>(() => SaveFavoriteCarRepositoryImpl());
-    getIt.registerLazySingleton<GetCarByColorRepository>(() => GetCarByColorRepositoryImpl(
-          getIt(),
-        ));
+    getIt.registerLazySingleton<SaveFavoriteCarRepository>(
+      () => SaveFavoriteCarRepositoryImpl(),
+    );
+    getIt.registerLazySingleton<GetCarByColorRepository>(
+      () => GetCarByColorRepositoryImpl(
+        getIt(),
+      ),
+    );
 
     // Usecases
-    getIt.registerLazySingleton<GetCarByColorUsecase>(() => GetCarByColorUsecaseImpl(getIt()));
-    getIt.registerLazySingleton<SaveFavoriteCarUsecase>(() => SaveFavoriteCarUsecaseImpl(getIt()));
+    getIt.registerLazySingleton<GetCarByColorUsecase>(
+      () => GetCarByColorUsecaseImpl(
+        getIt(),
+      ),
+    );
+    getIt.registerLazySingleton<SaveFavoriteCarUsecase>(
+      () => SaveFavoriteCarUsecaseImpl(
+        getIt(),
+      ),
+    );
 
     // Controllers
-    getIt.registerFactory<CarController>(() => CarController(
-          getCarByColorUsecase: getIt(),
-          saveFavoriteCarUsecase: getIt(),
-        ));
+    getIt.registerFactory<CarController>(
+      () => CarController(
+        getCarByColorUsecase: getIt(),
+        saveFavoriteCarUsecase: getIt(),
+      ),
+    );
   }
 }

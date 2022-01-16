@@ -2,8 +2,8 @@ import 'package:clean_arch/modules/car/domain/entities/entities.dart';
 import 'package:clean_arch/modules/car/domain/usecases/usecases.dart';
 
 class CarController {
-  final GetCarByColorUsecaseImpl getCarByColorUsecase;
-  final SaveFavoriteCarUsecaseImpl saveFavoriteCarUsecase;
+  final GetCarByColorUsecase getCarByColorUsecase;
+  final SaveFavoriteCarUsecase saveFavoriteCarUsecase;
 
   late CarEntity car;
 
