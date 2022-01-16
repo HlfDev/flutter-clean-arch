@@ -4,7 +4,7 @@ import 'package:clean_arch/modules/car/domain/entities/entities.dart';
 import 'package:clean_arch/modules/car/domain/usecases/usecases.dart';
 
 void main() {
-  late GetCarByColorUsecaseImpl getCarByColorUsecase;
+  late GetCarByColorUsecase getCarByColorUsecase;
 
   setUp(() {
     getCarByColorUsecase = GetCarByColorUsecaseImpl();
