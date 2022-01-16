@@ -11,8 +11,9 @@ void main() {
   late GetCarByColorUsecase getCarByColorUsecase;
   late GetCarByColorRepository getCarByColorRepository;
   late GetCarByColorDatasource getCarByColorDataSource;
+
   setUp(() {
-    getCarByColorDataSource = GetCarByColorLocalDatasource();
+    getCarByColorDataSource = GetCarByColorLocalDatasourceImpl();
     getCarByColorRepository = GetCarByColorRepositoryImpl(getCarByColorDataSource);
     getCarByColorUsecase = GetCarByColorUsecaseImpl(getCarByColorRepository);
   });
