@@ -19,32 +19,40 @@ void main() {
   });
 
   test('Should show a CarEntity when GetCarByColorUsecase is called', () {
+    // Arrange
+    late CarEntity expectResult;
+
     // Act
     final result = getCarByColorUsecase('Red');
+    result.fold((l) => null, (r) => expectResult = r);
 
     // Assert
-    expect(result, isInstanceOf<CarEntity>());
+    expect(expectResult, isInstanceOf<CarEntity>());
   });
 
   test('Should show a CarEntity with four doors when color is red', () {
     // Arrange
     const expectValue = 4;
+    late CarEntity expectResult;
 
     // Act
     final result = getCarByColorUsecase('Red');
+    result.fold((l) => null, (r) => expectResult = r);
 
     // Assert
-    expect(result.doorNumbers, expectValue);
+    expect(expectResult.doorNumbers, expectValue);
   });
 
   test('Should show a CarEntity with two doors when color is different than red', () {
     // Arrange
     const expectValue = 2;
+    late CarEntity expectResult;
 
     // Act
     final result = getCarByColorUsecase('Blue');
+    result.fold((l) => null, (r) => expectResult = r);
 
     // Assert
-    expect(result.doorNumbers, expectValue);
+    expect(expectResult.doorNumbers, expectValue);
   });
 }

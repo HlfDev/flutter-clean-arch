@@ -16,11 +16,15 @@ void main() {
   });
 
   test('Should show a CarEntity when GetCarByColorRepository is called', () {
+    // Arrange
+    late CarEntity expectResult;
+
     // Act
     final result = getCarByColorRepository('Red');
+    result.fold((l) => null, (r) => expectResult = r);
 
     // Assert
-    expect(result, isNotNull);
-    expect(result, isInstanceOf<CarEntity>());
+    expect(expectResult, isNotNull);
+    expect(expectResult, isInstanceOf<CarEntity>());
   });
 }

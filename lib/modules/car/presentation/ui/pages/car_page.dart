@@ -1,12 +1,8 @@
+import 'package:get_it/get_it.dart';
+
 import 'package:flutter/material.dart';
 
-import 'package:clean_arch/modules/car/domain/usecases/usecases.dart';
-
-import 'package:clean_arch/modules/car/data/datasources/datasources.dart';
-import 'package:clean_arch/modules/car/data/repositories/repositories.dart';
-
 import 'package:clean_arch/modules/car/presentation/controllers/controllers.dart';
-import 'package:get_it/get_it.dart';
 
 class CarPage extends StatefulWidget {
   const CarPage({

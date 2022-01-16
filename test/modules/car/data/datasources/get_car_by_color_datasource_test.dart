@@ -11,8 +11,14 @@ void main() {
   });
 
   test('Should show a CarModel when GetCarByColorDatasource is called', () {
-    final result = getCarByColorDataSource('red');
+    // Arrange
+    late CarModel expectResult;
 
-    expect(result, isInstanceOf<CarModel>());
+    // Act
+    final result = getCarByColorDataSource('red');
+    result.fold((l) => null, (r) => expectResult = r);
+
+    // Assert
+    expect(expectResult, isInstanceOf<CarModel>());
   });
 }

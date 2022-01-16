@@ -15,11 +15,13 @@ void main() {
   test('Show show a boolean when saveFavoriteCarRepository is called', () async {
     // Arrange
     final carEntity = CarEntity(licensePlate: 'ABC100', doorNumbers: 0, value: 40000);
+    late bool expectResult;
 
     // Act
     final result = await saveFavoriteCarRepository(carEntity);
+    result.fold((l) => null, (r) => expectResult = r);
 
     //Assert
-    expect(result, isInstanceOf<bool>());
+    expect(expectResult, isInstanceOf<bool>());
   });
 }

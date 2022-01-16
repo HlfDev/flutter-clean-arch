@@ -18,22 +18,26 @@ void main() {
   test('Should save CarEntity when car value is more than zero ', () async {
     // Arrange
     final carEntity = CarEntity(licensePlate: 'ABC100', doorNumbers: 0, value: 40000);
+    late bool expectResult;
 
     // Act
     final result = await saveFavoriteCarUsecase(carEntity);
+    result.fold((l) => null, (r) => expectResult = r);
 
     // Assert
-    expect(result, true);
+    expect(expectResult, true);
   });
 
   test('Should don\'t save CarEntity when car value is than zero or less', () async {
     // Arrange
     final carEntity = CarEntity(licensePlate: 'ABC100', doorNumbers: 0, value: 0);
+    late bool expectResult;
 
     // Act
     final result = await saveFavoriteCarUsecase(carEntity);
+    result.fold((l) => null, (r) => expectResult = r);
 
     // Assert
-    expect(result, false);
+    expect(expectResult, false);
   });
 }
