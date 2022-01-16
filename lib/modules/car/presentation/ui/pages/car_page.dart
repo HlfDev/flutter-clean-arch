@@ -18,7 +18,7 @@ class CarPage extends StatefulWidget {
 }
 
 class _CarPageState extends State<CarPage> {
-  CarController carController = GetIt.I.get<CarController>();
+  var carController = GetIt.I.get<CarController>();
 
   @override
   Widget build(BuildContext context) {
