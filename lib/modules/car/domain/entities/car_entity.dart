@@ -15,7 +15,7 @@ class CarEntity {
 
   taxArringFromValue() {
     if (totalValue > 40000) {
-      return value * 2;
+      return value *= 2;
     }
   }
 
